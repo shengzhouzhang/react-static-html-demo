@@ -32,9 +32,12 @@ export default class Make extends React.Component {
   };
   getThumbnailsProps = (works) => {
     return {
-      items: _.map(works, work => {
-        return { imageUrl: work.imageUrl };
-      })
+      items: _.chain(works)
+        .map(work => {
+          return { imageUrl: work.imageUrl };
+        })
+        .take(10)
+        .value()
     };
   };
 }
