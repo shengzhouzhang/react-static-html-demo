@@ -33,4 +33,39 @@ describe('Model Component', () => {
       expect(wrapper.find(Thumbnails).props()).to.eql(EXPECTED_THUMBNAILS_PROPS);
     });
   });
+
+  describe('getHeaderProps function', () => {
+
+    it('should return the props of header', () => {
+      const TITLE = 'TITLE';
+      const PROPS = { items: [
+        { _id: 'ID_1', imageUrl: 'URI_1', make: 'MAKE', model: 'MODEL' },
+        { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE', model: 'MODEL' }
+      ] };
+      const EXPECTED_HEADER_PROPS = {
+        title: TITLE,
+        navigations: [
+          { name: 'index page', uri: '/' },
+          { name: 'MAKE', uri: '/make/MAKE' },
+        ]
+      };
+      let wrapper = shallow(<Model {...PROPS} />);
+      expect(wrapper.instance().getHeaderProps(TITLE, PROPS.items)).to.eql(EXPECTED_HEADER_PROPS);
+    });
+  });
+
+  describe('getThumbnailsProps function', () => {
+
+    it('should return the props of thumbnails', () => {
+      const PROPS = { items: [
+        { _id: 'ID_1', imageUrl: 'URI_1', make: 'MAKE', model: 'MODEL' },
+        { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE', model: 'MODEL' }
+      ] };
+      const EXPECTED_THUMBNAILS_PROPS = {
+        items: [ { imageUrl: 'URI_1' }, { imageUrl: 'URI_2' } ]
+      };
+      let wrapper = shallow(<Model {...PROPS} />);
+      expect(wrapper.instance().getThumbnailsProps(PROPS.items)).to.eql(EXPECTED_THUMBNAILS_PROPS);
+    });
+  });
 });

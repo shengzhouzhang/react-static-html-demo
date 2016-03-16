@@ -7,21 +7,36 @@ import Header from '../../components/Header';
 
 export default class Model extends React.Component {
   static propTypes = {
+    title: React.PropTypes.string,
     items: React.PropTypes.array.isRequired
   };
+  static defaultProps = {
+    title: 'model'
+  };
   render = () => {
-    let images = _.map(this.props.items, item => {
-      return { imageUrl: item.imageUrl };
-    });
-    let navigations = [
-      { name: 'index page', uri: '/' },
-      { name: this.props.items[0].make, uri: `/make/${this.props.items[0].make}` }
-    ]
+    let headerProps = this.getHeaderProps(this.props.title, this.props.items);
+    let thumbnailsProps = this.getThumbnailsProps(this.props.items);
     return (
-      <Container title="model">
-        <Header title="model" navigations={navigations} />
-        <Thumbnails items={images} />
+      <Container title={this.props.title}>
+        <Header {...headerProps} />
+        <Thumbnails {...thumbnailsProps} />
       </Container>
     );
+  };
+  getHeaderProps = (title, works) => {
+    return {
+      title: title,
+      navigations: [
+        { name: 'index page', uri: '/' },
+        { name: works[0].make, uri: `/make/${works[0].make}` }
+      ]
+    };
+  };
+  getThumbnailsProps = (works) => {
+    return {
+      items: _.map(works, work => {
+        return { imageUrl: work.imageUrl };
+      })
+    };
   };
 }
