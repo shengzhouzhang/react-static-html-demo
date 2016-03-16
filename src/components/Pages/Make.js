@@ -16,6 +16,7 @@ export default class Make extends React.Component {
     let navigations = _.map(this.props.items, item => {
       return { name: item.model, uri: `/make/${item.make}/model/${item.model}` };
     });
+    navigations.unshift({ name: 'index page', uri: '/' });
     return (
       <Container title="make">
         <Header title="make" navigations={navigations} />

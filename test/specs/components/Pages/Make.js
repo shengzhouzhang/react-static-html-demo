@@ -13,14 +13,15 @@ describe('Make Component', () => {
 
     it('should render header and thumbnails', () => {
       const PROPS = { items: [
-        { _id: 'ID_1', imageUrl: 'URI_1', make: 'MAKE_1', model: 'MODEL_1' },
-        { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE_2', model: 'MODEL_2' }
+        { _id: 'ID_1', imageUrl: 'URI_1', make: 'MAKE', model: 'MODEL_1' },
+        { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE', model: 'MODEL_2' }
       ] };
       const EXPECTED_HEADER_PROPS = {
         title: 'make',
         navigations: [
-          { name: 'MODEL_1', uri: '/make/MAKE_1/model/MODEL_1' },
-          { name: 'MODEL_2', uri: '/make/MAKE_2/model/MODEL_2' }
+          { name: 'index page', uri: '/' },
+          { name: 'MODEL_1', uri: '/make/MAKE/model/MODEL_1' },
+          { name: 'MODEL_2', uri: '/make/MAKE/model/MODEL_2' }
         ]
       };
       const EXPECTED_THUMBNAILS_PROPS = {
