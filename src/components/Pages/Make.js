@@ -24,9 +24,12 @@ export default class Make extends React.Component {
     );
   };
   getHeaderProps = (title, works) => {
-    let navigations = _.map(works, work => {
-      return { name: work.model, uri: `models/${work.model}.html` };
-    });
+    let navigations = _.chain(works)
+      .groupBy(work => work.model)
+      .map((works, model) => {
+        return { name: model, uri: `models/${model}.html` };
+      })
+      .value();
     navigations.unshift({ name: 'index page', uri: '../../index.html' });
     return { title, navigations };
   };

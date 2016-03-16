@@ -21,7 +21,7 @@ export default class MakeProducer  {
       .then(works => _.groupBy(works, work => work.make))
       .then(groups => _.map(groups, (works, make) =>
         this.writer.create(
-          `${this.output}/makes/${make || 'unknows'}/index.html`,
+          `${this.output}/makes/${make}/index.html`,
           this.html.toStatic(Make, { items: works, title: make })
         )
       ))

@@ -18,7 +18,7 @@ export default class ModelProducer  {
   };
   createModels = () => {
     return this.reader.parseXmlToEntities()
-      .then(works => _.groupBy(works, work => `${work.make || 'unknows'}/models/${work.model || 'unknows'}.html`))
+      .then(works => _.groupBy(works, work => `${work.make}/models/${work.model}.html`))
       .then(groups => _.map(groups, (works, filePath) =>
         this.writer.create(
           `${this.output}/makes/${filePath}`,

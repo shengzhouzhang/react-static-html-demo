@@ -5,7 +5,7 @@ export default class Work {
 
     this._id = id;
     this.imageUrl = imageUrl;
-    this.make = make && make.toLowerCase() || '';
-    this.model = make && model.toLowerCase() || '';
+    this.make = make && make.toLowerCase() || 'unknown';
+    this.model = make && model.toLowerCase() || 'unknown';
   }
 }

@@ -26,9 +26,12 @@ export default class Index extends React.Component {
   getHeaderProps = (title, works) => {
     return {
       title: title,
-      navigations: _.map(works, work => {
-        return { name: work.make, uri: `makes/${work.make}/index.html` };
-      })
+      navigations: _.chain(works)
+        .groupBy(work => work.make)
+        .map((works, make) => {
+          return { name: make, uri: `makes/${make}/index.html` };
+        })
+        .value()
     };
   };
   getThumbnailsProps = (works) => {
