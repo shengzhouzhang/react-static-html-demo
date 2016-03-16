@@ -39,7 +39,7 @@ export default class Index extends React.Component {
     return {
       items: _.chain(works)
         .map(work => {
-          return { imageUrl: work.imageUrl };
+          return { imageUrl: work.imageUrl, name: `${work.make}-${work.model}` };
         })
         .take(10)
         .value()

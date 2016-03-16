@@ -24,7 +24,10 @@ describe('Model Component', () => {
         ]
       };
       const EXPECTED_THUMBNAILS_PROPS = {
-        items: [ { imageUrl: 'URI_1' }, { imageUrl: 'URI_2' } ]
+        items: [
+          { imageUrl: 'URI_1', name: 'MAKE-MODEL' },
+          { imageUrl: 'URI_2', name: 'MAKE-MODEL' }
+        ]
       };
       let wrapper = shallow(<Model {...PROPS} />);
       expect(wrapper.find(Header)).to.have.length(1);
@@ -62,7 +65,10 @@ describe('Model Component', () => {
         { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE', model: 'MODEL' }
       ] };
       const EXPECTED_THUMBNAILS_PROPS = {
-        items: [ { imageUrl: 'URI_1' }, { imageUrl: 'URI_2' } ]
+        items: [
+          { imageUrl: 'URI_1', name: 'MAKE-MODEL' },
+          { imageUrl: 'URI_2', name: 'MAKE-MODEL' }
+        ]
       };
       let wrapper = shallow(<Model {...PROPS} />);
       expect(wrapper.instance().getThumbnailsProps(PROPS.items)).to.eql(EXPECTED_THUMBNAILS_PROPS);

@@ -18,9 +18,10 @@ export default class Thumbnails extends React.Component {
 
 export class Thumbnail extends React.Component {
   static propTypes = {
+    name: React.PropTypes.string.isRequired,
     imageUrl: React.PropTypes.string.isRequired
   };
   render = () => {
-    return (<img className="thumbnail" src={this.props.imageUrl} />);
+    return (<img className="thumbnail" name={this.props.name} src={this.props.imageUrl} />);
   };
 }

@@ -35,7 +35,7 @@ export default class Model extends React.Component {
   getThumbnailsProps = (works) => {
     return {
       items: _.map(works, work => {
-        return { imageUrl: work.imageUrl };
+        return { imageUrl: work.imageUrl, name: `${work.make}-${work.model}` };
       })
     };
   };

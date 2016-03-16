@@ -24,7 +24,10 @@ describe('Index Component', () => {
         ]
       };
       const EXPECTED_THUMBNAILS_PROPS = {
-        items: [ { imageUrl: 'URI_1' }, { imageUrl: 'URI_2' } ]
+        items: [
+          { imageUrl: 'URI_1', name: 'MAKE_1-MODEL_1' },
+          { imageUrl: 'URI_2', name: 'MAKE_2-MODEL_2' }
+        ]
       };
       let wrapper = shallow(<Index {...PROPS} />);
       expect(wrapper.find(Header)).to.have.length(1);
@@ -62,7 +65,10 @@ describe('Index Component', () => {
         { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE_2', model: 'MODEL_2' }
       ] };
       const EXPECTED_THUMBNAILS_PROPS = {
-        items: [ { imageUrl: 'URI_1' }, { imageUrl: 'URI_2' } ]
+        items: [
+          { imageUrl: 'URI_1', name: 'MAKE_1-MODEL_1' },
+          { imageUrl: 'URI_2', name: 'MAKE_2-MODEL_2' }
+        ]
       };
       let wrapper = shallow(<Index {...PROPS} />);
       expect(wrapper.instance().getThumbnailsProps(PROPS.items)).to.eql(EXPECTED_THUMBNAILS_PROPS);
