@@ -7,6 +7,6 @@ let producer = new Producer(
   path.resolve('./output')
 );
 
-producer.createIndex()
+producer.createMakes()
   .then(() => console.log('done'))
   .catch(err => console.error(err));

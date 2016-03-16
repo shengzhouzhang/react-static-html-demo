@@ -2,21 +2,27 @@
 import fs from 'fs';
 import path from 'path';
 import Promise from 'bluebird';
+import mkdirp from 'mkdirp';
 
 export default class Writer {
-  constructor (dirPath) {
-    this.dirPath = dirPath;
+  create = (filePath, data) => {
+    return this.mkdir(filePath)
+      .then(() => this.save(filePath, data));
   };
-  save = (fileName, data) => {
+  save = (filePath, data) => {
     return new Promise((resolve, reject) => {
-      let filePath = this.getFilePath(this.dirPath, fileName);
       fs.writeFile(filePath, data, (err) => {
-        if (err) { return reject(new Error(err.message)); }
+        if (err) { return reject(new Error(`save error: ${err.message}`)); }
         return resolve();
       });
     });
   };
-  getFilePath = (dirPath, fileName) => {
-    return path.resolve(dirPath, fileName);
+  mkdir = (filePath) => {
+    return new Promise((resolve, reject) => {
+      mkdirp(path.dirname(filePath), (err) => {
+        if (err) { return reject(new Error(`mkdir error: ${err.message}`)); }
+        return resolve();
+      });
+    });
   };
 }

@@ -14,7 +14,7 @@ export default class MakeIndex extends React.Component {
       return { imageUrl: item.imageUrl };
     });
     let navigations = _.map(this.props.items, item => {
-      return { name: item.make, uri: '/makes/${item.make}' };
+      return { name: item.make, uri: '/make/${item.make}' };
     });
     return (
       <Container title="make index">
