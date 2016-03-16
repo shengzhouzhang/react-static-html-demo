@@ -19,7 +19,7 @@ describe('Make Component', () => {
       const EXPECTED_HEADER_PROPS = {
         title: 'make',
         navigations: [
-          { name: 'index page', uri: '/' },
+          { name: 'index page', uri: '../../index.html' },
           { name: 'MODEL_1', uri: 'models/MODEL_1.html' },
           { name: 'MODEL_2', uri: 'models/MODEL_2.html' }
         ]
@@ -46,7 +46,7 @@ describe('Make Component', () => {
       const EXPECTED_HEADER_PROPS = {
         title: TITLE,
         navigations: [
-          { name: 'index page', uri: '/' },
+          { name: 'index page', uri: '../../index.html' },
           { name: 'MODEL_1', uri: 'models/MODEL_1.html' },
           { name: 'MODEL_2', uri: 'models/MODEL_2.html' }
         ]

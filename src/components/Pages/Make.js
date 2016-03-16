@@ -27,7 +27,7 @@ export default class Make extends React.Component {
     let navigations = _.map(works, work => {
       return { name: work.model, uri: `models/${work.model}.html` };
     });
-    navigations.unshift({ name: 'index page', uri: '/' });
+    navigations.unshift({ name: 'index page', uri: '../../index.html' });
     return { title, navigations };
   };
   getThumbnailsProps = (works) => {
