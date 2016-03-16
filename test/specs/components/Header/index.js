@@ -1,5 +1,4 @@
 
-import _ from 'lodash';
 import React from 'React';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
