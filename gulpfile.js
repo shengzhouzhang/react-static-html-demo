@@ -9,11 +9,6 @@ gulp.task('clean', function() {
    .pipe(rimraf({ force: true }));
 });
 
-gulp.task('html', function () {
-  return gulp.src('src/server/templates/*.handlebars')
-    .pipe(gulp.dest('dist/server/templates'));
-});
-
 gulp.task('babel', function (options, a, b) {
   return gulp.src(['src/**/*.js'])
     .pipe(babel())
@@ -21,5 +16,5 @@ gulp.task('babel', function (options, a, b) {
 });
 
 gulp.task('build', function() {
-  runSequence('clean', [ 'html', 'babel' ]);
+  runSequence('clean', 'babel');
 });
