@@ -2,16 +2,17 @@
 import _ from 'lodash';
 import path from 'path';
 import { expect } from 'chai';
-import parseXmlToEntities, { loadXml, parseXmlToJson, parseJsonToEntities } from '../../../src/utils/reader';
+import Reader from '../../../src/utils/Reader';
 import Work from '../../../src/domains/Work';
 
-describe('reader util', () => {
+describe('Reader Util', () => {
 
   describe('loadXml function', () => {
 
     it('should get xml from file', () => {
       const filePath = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
-      return loadXml(filePath);
+      let reader = new Reader(filePath);
+      return reader.loadXml(filePath);
     });
   });
 
@@ -19,7 +20,8 @@ describe('reader util', () => {
 
     it('should parse xml to json', () => {
       const xmlString = '<root>Hello xml2js!</root>';
-      return parseXmlToJson(xmlString);
+      let reader = new Reader();
+      return reader.parseXmlToJson(xmlString);
     });
   });
 
@@ -27,9 +29,10 @@ describe('reader util', () => {
 
     it('should parse xml from file to json', () => {
       const filePath = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
-      return loadXml(filePath)
-        .then(parseXmlToJson)
-        .then(parseJsonToEntities)
+      let reader = new Reader(filePath);
+      return reader.loadXml(filePath)
+        .then(reader.parseXmlToJson)
+        .then(reader.parseJsonToEntities)
         .then(entities => {
           _.forEach(entities, entity => {
             expect(entity).to.be.an.instanceof(Work);
@@ -37,6 +40,8 @@ describe('reader util', () => {
             expect(entity).to.have.property('imageUrl');
             expect(entity).to.have.property('make');
             expect(entity).to.have.property('model');
+            expect(entity._id).to.exist;
+            expect(entity.imageUrl).to.exist;
           });
         });
     });
@@ -46,7 +51,8 @@ describe('reader util', () => {
 
     it('should parse xml from file to json', () => {
       const filePath = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
-      return parseXmlToEntities(filePath);
+      let reader = new Reader(filePath);
+      return reader.parseXmlToEntities();
     });
   });
 });
