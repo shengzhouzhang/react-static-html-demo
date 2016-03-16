@@ -17,7 +17,7 @@ describe('Make Component', () => {
         { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE', model: 'MODEL_2' }
       ] };
       const EXPECTED_HEADER_PROPS = {
-        title: 'make',
+        title: 'make page',
         navigations: [
           { name: 'index page', uri: '../../index.html' },
           { name: 'MODEL_1', uri: 'models/MODEL_1.html' },

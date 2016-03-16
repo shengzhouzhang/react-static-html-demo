@@ -17,7 +17,7 @@ describe('Index Component', () => {
         { _id: 'ID_2', imageUrl: 'URI_2', make: 'MAKE_2', model: 'MODEL_2' }
       ] };
       const EXPECTED_HEADER_PROPS = {
-        title: 'index',
+        title: 'index page',
         navigations: [
           { name: 'MAKE_1', uri: 'makes/MAKE_1/index.html' },
           { name: 'MAKE_2', uri: 'makes/MAKE_2/index.html' }

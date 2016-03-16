@@ -11,7 +11,7 @@ export default class Make extends React.Component {
     items: React.PropTypes.array.isRequired
   };
   static defaultProps = {
-    title: 'make'
+    title: 'make page'
   };
   render = () => {
     let headerProps = this.getHeaderProps(this.props.title, this.props.items);

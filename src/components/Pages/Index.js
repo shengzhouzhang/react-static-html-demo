@@ -11,7 +11,7 @@ export default class Index extends React.Component {
     items: React.PropTypes.array.isRequired
   };
   static defaultProps = {
-    title: 'index'
+    title: 'index page'
   };
   render = () => {
     let headerProps = this.getHeaderProps(this.props.title, this.props.items);

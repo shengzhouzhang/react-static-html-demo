@@ -11,7 +11,7 @@ export default class Model extends React.Component {
     items: React.PropTypes.array.isRequired
   };
   static defaultProps = {
-    title: 'model'
+    title: 'model page'
   };
   render = () => {
     let headerProps = this.getHeaderProps(this.props.title, this.props.items);
