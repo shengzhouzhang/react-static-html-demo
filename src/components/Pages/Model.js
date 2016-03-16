@@ -15,11 +15,11 @@ export default class Model extends React.Component {
     });
     let navigations = [
       { name: 'index page', uri: '/' },
-      { name: this.props.make, uri: `/make/${items[0].make}}` }
+      { name: this.props.items[0].make, uri: `/make/${this.props.items[0].make}` }
     ]
     return (
-      <Container title="make index">
-        <Header title="make index" navigations={navigations} />
+      <Container title="model">
+        <Header title="model" navigations={navigations} />
         <Thumbnails items={images} />
       </Container>
     );
