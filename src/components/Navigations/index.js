@@ -11,7 +11,7 @@ export default class Navigations extends React.Component {
       return (<Navigation key={`navigation-${index}`} {...item} />);
     });
     return (
-      <div className="navigations">{ navigations }</div>
+      <nav className="navigations">{ navigations }</nav>
     );
   };
 }

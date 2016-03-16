@@ -14,11 +14,11 @@ export default class Index extends React.Component {
       return { imageUrl: item.imageUrl };
     });
     let navigations = _.map(this.props.items, item => {
-      return { name: item.make, uri: '/make/${item.make}' };
+      return { name: item.make, uri: `/make/${item.make}` };
     });
     return (
-      <Container title="make index">
-        <Header title="make index" navigations={navigations} />
+      <Container title="index">
+        <Header title="index" navigations={navigations} />
         <Thumbnails items={images} />
       </Container>
     );

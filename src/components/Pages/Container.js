@@ -11,7 +11,10 @@ export default class Containers extends React.Component {
   render = () => {
     return (
       <html>
-        <head><title>{this.props.title}</title></head>
+        <head>
+          <title>{this.props.title}</title>
+          <style type="text/css">{'nav { margin: 10px; }'}</style>
+        </head>
         <body>{this.props.children}</body>
       </html>
     );

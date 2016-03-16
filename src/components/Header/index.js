@@ -1,5 +1,6 @@
 
 import React from 'react';
+import Title from '../../components/Title';
 import Navigations from '../../components/Navigations';
 
 export default class Header extends React.Component {
@@ -10,8 +11,8 @@ export default class Header extends React.Component {
   render = () => {
     return (
       <header>
-        <h1>{ this.props.title }</h1>
-        <nav><Navigations items={this.props.navigations} /></nav>
+        <Title title={this.props.title} />
+        <Navigations items={this.props.navigations} />
       </header>
     );
   };
