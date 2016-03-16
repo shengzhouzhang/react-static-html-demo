@@ -1,10 +1,7 @@
 
-import _ from 'lodash';
 import React from 'react';
-import Thumbnails from '../../components/Thumbnails';
-import Header from '../../components/Header';
 
-export default class Containers extends React.Component {
+export default class Container extends React.Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
   };
