@@ -1,12 +1,17 @@
 
-import path from 'path'
-import Producer from './Producer'
+import Promise from 'bluebird';
+import IndexProducer from './Producers/IndexProducer';
+import MakeProducer from './Producers/MakeProducer';
+import ModelProducer from './Producers/ModelProducer';
 
-let producer = new Producer(
-  path.resolve('./data/works.xml'),
-  path.resolve('./output')
-);
+export function create (input, output) {
+  return Promise.all([
+    new IndexProducer(input, output).createIndex(),
+    new MakeProducer(input, output).createMakes(),
+    new ModelProducer(input, output).createModels()
+  ]);
+}
 
-producer.createIndex()
+create('./data/works.xml', './output')
   .then(() => console.log('done'))
   .catch(err => console.error(err));
