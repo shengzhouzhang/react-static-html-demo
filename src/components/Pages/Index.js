@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 export default class Index extends React.Component {
   static propTypes = {
     title: React.PropTypes.string,
-    items: React.PropTypes.array.isRequired,
+    items: React.PropTypes.array.isRequired
   };
   static defaultProps = {
     title: 'index'

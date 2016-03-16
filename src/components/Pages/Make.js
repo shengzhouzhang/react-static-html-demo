@@ -7,21 +7,34 @@ import Header from '../../components/Header';
 
 export default class Make extends React.Component {
   static propTypes = {
+    title: React.PropTypes.string,
     items: React.PropTypes.array.isRequired
   };
+  static defaultProps = {
+    title: 'make'
+  };
   render = () => {
-    let images = _.map(this.props.items, item => {
-      return { imageUrl: item.imageUrl };
-    });
-    let navigations = _.map(this.props.items, item => {
-      return { name: item.model, uri: `/make/${item.make}/model/${item.model}` };
-    });
-    navigations.unshift({ name: 'index page', uri: '/' });
+    let headerProps = this.getHeaderProps(this.props.title, this.props.items);
+    let thumbnailsProps = this.getThumbnailsProps(this.props.items);
     return (
-      <Container title="make">
-        <Header title="make" navigations={navigations} />
-        <Thumbnails items={images} />
+      <Container title={this.props.title}>
+        <Header {...headerProps} />
+        <Thumbnails {...thumbnailsProps} />
       </Container>
     );
+  };
+  getHeaderProps = (title, works) => {
+    let navigations = _.map(works, work => {
+      return { name: work.model, uri: `/make/${work.make}/model/${work.model}` };
+    });
+    navigations.unshift({ name: 'index page', uri: '/' });
+    return { title, navigations };
+  };
+  getThumbnailsProps = (works) => {
+    return {
+      items: _.map(works, work => {
+        return { imageUrl: work.imageUrl };
+      })
+    };
   };
 }
