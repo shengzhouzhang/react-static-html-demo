@@ -17,8 +17,8 @@ export default class Make extends React.Component {
       return { name: item.model, uri: `/make/${item.make}/model/${item.model}` };
     });
     return (
-      <Container title="make index">
-        <Header title="make index" navigations={navigations} />
+      <Container title="make">
+        <Header title="make" navigations={navigations} />
         <Thumbnails items={images} />
       </Container>
     );
