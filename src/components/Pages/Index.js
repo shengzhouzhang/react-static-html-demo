@@ -31,6 +31,7 @@ export default class Index extends React.Component {
         .map((works, make) => {
           return { name: make, uri: `makes/${make}/index.html` };
         })
+        .sortBy(navigation => navigation.name)
         .value()
     };
   };

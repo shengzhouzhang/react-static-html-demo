@@ -29,6 +29,7 @@ export default class Make extends React.Component {
       .map((works, model) => {
         return { name: model, uri: `models/${model}.html` };
       })
+      .sortBy(navigation => navigation.name)
       .value();
     navigations.unshift({ name: 'index page', uri: '../../index.html' });
     return { title, navigations };
