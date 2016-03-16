@@ -5,7 +5,7 @@ import Container from '../../components/Pages/Container';
 import Thumbnails from '../../components/Thumbnails';
 import Header from '../../components/Header';
 
-export default class MakeIndex extends React.Component {
+export default class Index extends React.Component {
   static propTypes = {
     items: React.PropTypes.array.isRequired,
   };

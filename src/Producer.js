@@ -5,6 +5,7 @@ import Writer from './utils/Writer';
 import Html from './utils/Html';
 import Index from './components/Pages/Index';
 import Make from './components/Pages/Make';
+import Model from './components/Pages/Model';
 
 const INDEX_FILE = 'index.html';
 
@@ -29,8 +30,20 @@ export default class Producer  {
 
     return reader.parseXmlToEntities()
       .then(works => _.groupBy(works, work => work.make))
-      .then(groups => _.map(groups, (works, name) =>
-        writer.create(`${this.output}/makes/${name || 'unknows'}/index.html`, html.toStatic(Make, { items: works }))
+      .then(groups => _.map(groups, (works, make) =>
+        writer.create(`${this.output}/makes/${make || 'unknows'}/index.html`, html.toStatic(Make, { items: works }))
+      ))
+      .then(tasks => Promise.all(tasks));
+  };
+  createModels = () => {
+    let reader = new Reader(this.input);
+    let writer = new Writer();
+    let html = new Html();
+
+    return reader.parseXmlToEntities()
+      .then(works => _.groupBy(works, work => `${work.make || 'unknows'}/models/${work.model || 'unknows'}.html`))
+      .then(groups => _.map(groups, (works, filePath) =>
+        writer.create(`${this.output}/makes/${filePath}`, html.toStatic(Model, { items: works }))
       ))
       .then(tasks => Promise.all(tasks));
   };

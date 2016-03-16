@@ -5,7 +5,7 @@ import Container from '../../components/Pages/Container';
 import Thumbnails from '../../components/Thumbnails';
 import Header from '../../components/Header';
 
-export default class Make extends React.Component {
+export default class Model extends React.Component {
   static propTypes = {
     items: React.PropTypes.array.isRequired
   };
@@ -13,9 +13,10 @@ export default class Make extends React.Component {
     let images = _.map(this.props.items, item => {
       return { imageUrl: item.imageUrl };
     });
-    let navigations = _.map(this.props.items, item => {
-      return { name: item.model, uri: '/make/${item.make}/model/${item.model}' };
-    });
+    let navigations = [
+      { name: 'index page', uri: '/' },
+      { name: this.props.make, uri: '/make/${items[0].make}}' }
+    ]
     return (
       <Container title="make index">
         <Header title="make index" navigations={navigations} />

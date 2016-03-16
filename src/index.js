@@ -7,6 +7,6 @@ let producer = new Producer(
   path.resolve('./output')
 );
 
-producer.createMakes()
+producer.createModels()
   .then(() => console.log('done'))
   .catch(err => console.error(err));
