@@ -1,4 +1,5 @@
 
+import _ from 'lodash';
 import React from 'React';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
@@ -8,10 +9,13 @@ describe('Thumbnails Component', () => {
 
   describe('render function', () => {
 
-    it('should render a list of thumbnails', () => {
+    it('should render a list of thumbnails and provide image url', () => {
       const PROPS = { items: [ { imageUrl: 'IMAGE_URL_1' }, { imageUrl: 'IMAGE_URL_2' } ] };
       let wrapper = shallow(<Thumbnails {...PROPS} />);
       expect(wrapper.find(Thumbnail)).to.have.length(PROPS.items.length);
+      _.forEach(PROPS.items, (item, index) => {
+        expect(wrapper.find(Thumbnail).get(index).props).to.eql(item);
+      });
     });
   });
 });
