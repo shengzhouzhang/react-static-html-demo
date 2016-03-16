@@ -19,8 +19,8 @@ describe('Model Component', () => {
       const EXPECTED_HEADER_PROPS = {
         title: 'model',
         navigations: [
-          { name: 'index page', uri: '/' },
-          { name: 'MAKE', uri: '/make/MAKE' },
+          { name: 'index page', uri: '../../../index.html' },
+          { name: 'MAKE', uri: '../index.html' },
         ]
       };
       const EXPECTED_THUMBNAILS_PROPS = {
@@ -45,8 +45,8 @@ describe('Model Component', () => {
       const EXPECTED_HEADER_PROPS = {
         title: TITLE,
         navigations: [
-          { name: 'index page', uri: '/' },
-          { name: 'MAKE', uri: '/make/MAKE' },
+          { name: 'index page', uri: '../../../index.html' },
+          { name: 'MAKE', uri: '../index.html' },
         ]
       };
       let wrapper = shallow(<Model {...PROPS} />);

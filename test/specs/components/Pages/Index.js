@@ -19,8 +19,8 @@ describe('Index Component', () => {
       const EXPECTED_HEADER_PROPS = {
         title: 'index',
         navigations: [
-          { name: 'MAKE_1', uri: '/make/MAKE_1' },
-          { name: 'MAKE_2', uri: '/make/MAKE_2' }
+          { name: 'MAKE_1', uri: 'makes/MAKE_1/index.html' },
+          { name: 'MAKE_2', uri: 'makes/MAKE_2/index.html' }
         ]
       };
       const EXPECTED_THUMBNAILS_PROPS = {
@@ -45,8 +45,8 @@ describe('Index Component', () => {
       const EXPECTED_HEADER_PROPS = {
         title: TITLE,
         navigations: [
-          { name: 'MAKE_1', uri: '/make/MAKE_1' },
-          { name: 'MAKE_2', uri: '/make/MAKE_2' }
+          { name: 'MAKE_1', uri: 'makes/MAKE_1/index.html' },
+          { name: 'MAKE_2', uri: 'makes/MAKE_2/index.html' }
         ]
       };
       let wrapper = shallow(<Index {...PROPS} />);

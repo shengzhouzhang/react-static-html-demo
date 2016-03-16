@@ -27,8 +27,8 @@ export default class Model extends React.Component {
     return {
       title: title,
       navigations: [
-        { name: 'index page', uri: '/' },
-        { name: works[0].make, uri: `/make/${works[0].make}` }
+        { name: 'index page', uri: '../../../index.html' },
+        { name: works[0].make, uri: '../index.html' }
       ]
     };
   };

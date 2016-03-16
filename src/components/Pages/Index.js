@@ -27,7 +27,7 @@ export default class Index extends React.Component {
     return {
       title: title,
       navigations: _.map(works, work => {
-        return { name: work.make, uri: `/make/${work.make}` };
+        return { name: work.make, uri: `makes/${work.make}/index.html` };
       })
     };
   };

@@ -20,8 +20,8 @@ describe('Make Component', () => {
         title: 'make',
         navigations: [
           { name: 'index page', uri: '/' },
-          { name: 'MODEL_1', uri: '/make/MAKE/model/MODEL_1' },
-          { name: 'MODEL_2', uri: '/make/MAKE/model/MODEL_2' }
+          { name: 'MODEL_1', uri: 'models/MODEL_1.html' },
+          { name: 'MODEL_2', uri: 'models/MODEL_2.html' }
         ]
       };
       const EXPECTED_THUMBNAILS_PROPS = {
@@ -47,8 +47,8 @@ describe('Make Component', () => {
         title: TITLE,
         navigations: [
           { name: 'index page', uri: '/' },
-          { name: 'MODEL_1', uri: '/make/MAKE/model/MODEL_1' },
-          { name: 'MODEL_2', uri: '/make/MAKE/model/MODEL_2' }
+          { name: 'MODEL_1', uri: 'models/MODEL_1.html' },
+          { name: 'MODEL_2', uri: 'models/MODEL_2.html' }
         ]
       };
       let wrapper = shallow(<Make {...PROPS} />);

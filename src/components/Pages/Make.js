@@ -25,7 +25,7 @@ export default class Make extends React.Component {
   };
   getHeaderProps = (title, works) => {
     let navigations = _.map(works, work => {
-      return { name: work.model, uri: `/make/${work.make}/model/${work.model}` };
+      return { name: work.model, uri: `models/${work.model}.html` };
     });
     navigations.unshift({ name: 'index page', uri: '/' });
     return { title, navigations };
