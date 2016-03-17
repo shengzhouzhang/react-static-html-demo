@@ -42,6 +42,7 @@ $ npm start <input_file_path> <output_folder_path>
 To run with the sample works provided on the test, simply do,
 
 ```
+$ gulp build
 $ npm start ./input/works.xml ./output
 ```
 
