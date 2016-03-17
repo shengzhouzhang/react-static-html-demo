@@ -31,4 +31,43 @@ describe('Model Producer', () => {
       return new ModelProducer(INPUT, OUTPUT).createModels();
     });
   });
+
+  describe('groupByMakeAndModel function', () => {
+
+    it('should group works by make and model', () => {
+      const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
+      const WORKS = [
+        { make: '1', model: '1' }, { make: '1', model: '1' },
+        { make: '2', model: '1' }, { make: '2', model: '2' }
+      ];
+      let result = new ModelProducer(INPUT, OUTPUT).groupByMakeAndModel(WORKS);
+      expect(result).to.eql({
+        'makes/1/models/1': [ { make: '1', model: '1' }, { make: '1', model: '1' } ],
+        'makes/2/models/1': [ { make: '2', model: '1' } ],
+        'makes/2/models/2': [ { make: '2', model: '2' } ]
+      })
+    });
+  });
+
+  describe('getStaticHtml function', () => {
+
+    it('should return static html string', () => {
+      const WORKS = [];
+      let result = new ModelProducer().getStaticHtml(WORKS);
+      expect(result).to.eql(
+        '<!DOCTYPE html><html><head><title>unknown unknown</title><style type="text/css">nav { margin: 10px; }</style></head><body><header><h1>unknown unknown</h1><nav><a href="../../../index.html">index page</a><a href="../index.html">unknown</a></nav></header><div></div></body></html>'
+      );
+    });
+  });
+
+  describe('getOutputPath function', () => {
+
+    it('should return the file path of the output file', () => {
+      const INPUT = '';
+      const OUTPUT = './output';
+      let result = new ModelProducer(INPUT, OUTPUT).getOutputPath('FILE_NAME');
+      expect(result).to.eql(`./output/FILE_NAME.html`);
+    });
+  });
 });

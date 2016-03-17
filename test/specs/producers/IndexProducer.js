@@ -65,7 +65,7 @@ describe('Index Producer', () => {
 
   describe('getOutputPath function', () => {
 
-    it('should return the file path of the output folder', () => {
+    it('should return the file path of the output file', () => {
       const INPUT = '';
       const OUTPUT = './output';
       let result = new IndexProducer(INPUT, OUTPUT).getOutputPath();

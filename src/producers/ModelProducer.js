@@ -29,7 +29,9 @@ export default class ModelProducer  {
     );
   };
   getStaticHtml = (works) => {
-    return this.html.toStatic(Model, { items: works, title: `${works[0].make} ${works[0].model}` })
+    let workName = works[0] && works[0].make || 'unknown';
+    let modelName = works[0] && works[0].model || 'unknown';
+    return this.html.toStatic(Model, { items: works, title: `${workName} ${modelName}` })
   };
   getOutputPath = (filePath) => {
     return `${this.output}/${filePath}.html`;
