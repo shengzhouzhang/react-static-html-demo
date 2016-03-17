@@ -1,4 +1,5 @@
 
+import fs from 'fs';
 import path from 'path';
 import { expect } from 'chai';
 import IndexProducer from '../../../src/producers/IndexProducer';
@@ -28,7 +29,47 @@ describe('Index Producer', () => {
       const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
       const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
 
-      return new IndexProducer(INPUT, OUTPUT).createIndex();
+      return new IndexProducer(INPUT, OUTPUT).createIndex()
+        .then(() => {
+          let status = fs.statSync(OUTPUT + '/index.html');
+          expect(status.isFile()).to.eql(true);
+        });
+    });
+  });
+
+  describe('createFile function', () => {
+
+    it('should create file', () => {
+      const INPUT = ''
+      const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
+      const OUTPUT_FILE = OUTPUT + '/TEST';
+      const TEXT = 'TEST TEST';
+      return new IndexProducer(INPUT, OUTPUT).createFile(OUTPUT_FILE, 'TEST TEST')
+        .then(() => {
+          let result = fs.readFileSync(OUTPUT_FILE, 'utf8');
+          expect(result).to.eql(TEXT);
+        });
+    });
+  });
+
+  describe('getStaticHtml function', () => {
+
+    it('should return static html string', () => {
+      const WORKS = [];
+      let result = new IndexProducer().getStaticHtml(WORKS);
+      expect(result).to.eql(
+        '<!DOCTYPE html><html><head><title>index page</title><style type="text/css">nav { margin: 10px; }</style></head><body><header><h1>index page</h1><nav></nav></header><div></div></body></html>'
+      );
+    });
+  });
+
+  describe('getOutputPath function', () => {
+
+    it('should return the file path of the output folder', () => {
+      const INPUT = '';
+      const OUTPUT = './output';
+      let result = new IndexProducer(INPUT, OUTPUT).getOutputPath();
+      expect(result).to.eql('./output/index.html');
     });
   });
 });

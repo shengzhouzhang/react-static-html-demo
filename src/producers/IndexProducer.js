@@ -20,7 +20,7 @@ export default class IndexProducer {
       .then(staticHtml => this.createFile(this.getOutputPath(), staticHtml));
   };
   createFile = (filePath, staticHtml) => {
-    this.writer.create(filePath, staticHtml)
+    return this.writer.create(filePath, staticHtml);
   };
   getStaticHtml = (works) => {
     return this.html.toStatic(Index, { items: works })
