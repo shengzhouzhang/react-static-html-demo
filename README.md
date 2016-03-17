@@ -28,7 +28,7 @@ $ npm install
 $ npm test
 ```
 
-The unit tests will generate index, makes, models pages and other test file under `./output` folder.
+The unit tests will generate index, makes, models pages and other test file under `./output` folder. And will clean it after finished. You can also manually clean it with `gulp clean-test`. 
 
 # Running
 

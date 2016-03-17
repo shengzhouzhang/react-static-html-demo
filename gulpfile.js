@@ -9,6 +9,11 @@ gulp.task('clean', function() {
    .pipe(rimraf({ force: true }));
 });
 
+gulp.task('clean-test', function() {
+ return gulp.src([ 'output' ], { read: false })
+   .pipe(rimraf({ force: true }));
+});
+
 gulp.task('babel', function (options, a, b) {
   return gulp.src(['src/**/*.js'])
     .pipe(babel())
