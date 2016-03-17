@@ -16,7 +16,16 @@ export default class IndexProducer {
   };
   createIndex = () => {
     return this.reader.parseXmlToEntities()
-      .then(works => this.html.toStatic(Index, { items: works }))
-      .then(htmlStr => this.writer.create(`${this.output}/index.html`, htmlStr));
+      .then(works => this.getStaticHtml(works))
+      .then(staticHtml => this.createFile(this.getOutputPath(), staticHtml));
+  };
+  getStaticHtml = (works) => {
+    return this.html.toStatic(Index, { items: works })
+  };
+  getOutputPath = () => {
+    return `${this.output}/index.html`;
+  };
+  createFile = (filePath, staticHtml) => {
+    this.writer.create(filePath, staticHtml)
   };
 }
