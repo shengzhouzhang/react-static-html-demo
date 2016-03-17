@@ -13,7 +13,7 @@ if (!OUTPUT) { throw new Error('missing output'); }
 console.log('INPUT', INPUT);
 console.log('OUTPUT', OUTPUT);
 
-export function process (input, output) {
+export function produce (input, output) {
   return Promise.all([
     new IndexProducer(input, output).createIndex(),
     new MakeProducer(input, output).createMakes(),
@@ -21,6 +21,6 @@ export function process (input, output) {
   ]);
 }
 
-process(INPUT, OUTPUT)
+produce(INPUT, OUTPUT)
   .then(() => console.log('done'))
   .catch(err => console.error(err));
