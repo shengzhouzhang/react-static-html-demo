@@ -6,7 +6,7 @@ import Navigations from '../../components/Navigations';
 export default class Header extends React.Component {
   static propTypes = {
     title: React.PropTypes.string.isRequired,
-    navigations: React.PropTypes.array.isRequired,
+    navigations: React.PropTypes.array.isRequired
   };
   render = () => {
     return (

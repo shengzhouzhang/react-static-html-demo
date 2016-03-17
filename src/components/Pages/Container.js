@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class Container extends React.Component {
   static propTypes = {
-    title: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired
   };
   render = () => {
     return (
