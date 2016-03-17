@@ -26,7 +26,7 @@ describe('Index Producer', () => {
   describe('createIndex function', () => {
 
     it('should create index file', () => {
-      const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const INPUT = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
 
       return new IndexProducer(INPUT, OUTPUT).createIndex()

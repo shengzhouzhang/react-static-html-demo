@@ -25,7 +25,7 @@ describe('Make Producer', () => {
   describe('createMakes function', () => {
 
     it('should create index file', () => {
-      const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const INPUT = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
 
       return new MakeProducer(INPUT, OUTPUT).createMakes();
@@ -35,7 +35,7 @@ describe('Make Producer', () => {
   describe('groupByMake function', () => {
 
     it('should group works by make', () => {
-      const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const INPUT = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
       const WORKS = [ { make: '1' }, { make: '2' }, { make: '1' } ];
       let result = new MakeProducer(INPUT, OUTPUT).groupByMake(WORKS);

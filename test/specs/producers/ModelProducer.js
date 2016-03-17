@@ -25,7 +25,7 @@ describe('Model Producer', () => {
   describe('createModels function', () => {
 
     it('should create index file', () => {
-      const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const INPUT = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
 
       return new ModelProducer(INPUT, OUTPUT).createModels();
@@ -35,7 +35,7 @@ describe('Model Producer', () => {
   describe('groupByMakeAndModel function', () => {
 
     it('should group works by make and model', () => {
-      const INPUT = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const INPUT = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       const OUTPUT = path.resolve(__dirname, '..', '..', '..', 'output');
       const WORKS = [
         { make: '1', model: '1' }, { make: '1', model: '1' },

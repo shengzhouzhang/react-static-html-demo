@@ -10,7 +10,7 @@ describe('Reader Util', () => {
   describe('loadXml function', () => {
 
     it('should get xml from file', () => {
-      const filePath = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const filePath = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       let reader = new Reader(filePath);
       return reader.loadXml(filePath);
     });
@@ -28,7 +28,7 @@ describe('Reader Util', () => {
   describe('parseJsonToEntities function', () => {
 
     it('should parse xml from file to json', () => {
-      const filePath = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const filePath = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       let reader = new Reader(filePath);
       return reader.loadXml(filePath)
         .then(reader.parseXmlToJson)
@@ -50,7 +50,7 @@ describe('Reader Util', () => {
   describe('parseXmlToEntities function', () => {
 
     it('should parse xml from file to json', () => {
-      const filePath = path.resolve(__dirname, '..', '..', '..', 'data', 'works.xml');
+      const filePath = path.resolve(__dirname, '..', '..', '..', 'input', 'works.xml');
       let reader = new Reader(filePath);
       return reader.parseXmlToEntities();
     });
