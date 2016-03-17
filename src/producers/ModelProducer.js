@@ -16,13 +16,25 @@ export default class ModelProducer  {
   };
   createModels = () => {
     return this.reader.parseXmlToEntities()
-      .then(works => _.groupBy(works, work => `${work.make}/models/${work.model}.html`))
-      .then(groups => _.map(groups, (works, filePath) =>
-        this.writer.create(
-          `${this.output}/makes/${filePath}`,
-          this.html.toStatic(Model, { items: works, title: `${works[0].make} ${works[0].model}` })
-        )
-      ))
-      .then(tasks => Promise.all(tasks));
+      .then(works => this.groupByMakeAndModel(works))
+      .then(workGroups => this.createFiles(workGroups))
+      .then(tasks => this.waitsFor(tasks));
+  };
+  groupByMakeAndModel = (works) => {
+    return _.groupBy(works, work => `makes/${work.make}/models/${work.model}`);
+  };
+  createFiles = (workGroups) => {
+    return  _.map(workGroups, (works, filePath) =>
+      this.writer.create(this.getOutputPath(filePath), this.getStaticHtml(works))
+    );
+  };
+  getStaticHtml = (works) => {
+    return this.html.toStatic(Model, { items: works, title: `${works[0].make} ${works[0].model}` })
+  };
+  getOutputPath = (filePath) => {
+    return `${this.output}/${filePath}.html`;
+  };
+  waitsFor = (tasks) => {
+    return Promise.all(tasks);
   };
 }
