@@ -11,7 +11,7 @@ export default class Thumbnails extends React.Component {
       return (<Thumbnail key={`thumbnail-${index}`} {...item} />);
     });
     return (
-      <div className="thumbnails">{ thumbnails }</div>
+      <div>{ thumbnails }</div>
     );
   };
 }
@@ -22,6 +22,6 @@ export class Thumbnail extends React.Component {
     imageUrl: React.PropTypes.string.isRequired
   };
   render = () => {
-    return (<img className="thumbnail" name={this.props.name} src={this.props.imageUrl} />);
+    return (<img name={this.props.name} src={this.props.imageUrl} />);
   };
 }

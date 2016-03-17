@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 
-export default class Markup {
+export default class Html {
   constructor () {
     this.docTpye = '<!DOCTYPE html>';
   };

@@ -11,7 +11,7 @@ export default class Navigations extends React.Component {
       return (<Navigation key={`navigation-${index}`} {...item} />);
     });
     return (
-      <nav className="navigations">{ navigations }</nav>
+      <nav>{ navigations }</nav>
     );
   };
 }
@@ -25,6 +25,6 @@ export class Navigation extends React.Component {
     name: ''
   };
   render = () => {
-    return (<a className="navigation" href={this.props.uri}>{this.props.name}</a>);
+    return (<a href={this.props.uri}>{this.props.name}</a>);
   };
 }
