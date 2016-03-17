@@ -19,13 +19,13 @@ export default class IndexProducer {
       .then(works => this.getStaticHtml(works))
       .then(staticHtml => this.createFile(this.getOutputPath(), staticHtml));
   };
+  createFile = (filePath, staticHtml) => {
+    this.writer.create(filePath, staticHtml)
+  };
   getStaticHtml = (works) => {
     return this.html.toStatic(Index, { items: works })
   };
   getOutputPath = () => {
     return `${this.output}/index.html`;
-  };
-  createFile = (filePath, staticHtml) => {
-    this.writer.create(filePath, staticHtml)
   };
 }

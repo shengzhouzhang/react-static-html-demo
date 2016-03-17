@@ -16,13 +16,25 @@ export default class MakeProducer  {
   };
   createMakes = () => {
     return this.reader.parseXmlToEntities()
-      .then(works => _.groupBy(works, work => work.make))
-      .then(groups => _.map(groups, (works, make) =>
-        this.writer.create(
-          `${this.output}/makes/${make}/index.html`,
-          this.html.toStatic(Make, { items: works, title: make })
-        )
-      ))
-      .then(tasks => Promise.all(tasks));
+      .then(works => this.groupByMake(works))
+      .then(workGroups => this.createFiles(workGroups))
+      .then(tasks => this.waitsFor(tasks));
+  };
+  groupByMake = (works) => {
+    return _.groupBy(works, work => work.make)
+  };
+  createFiles = (workGroups) => {
+    return  _.map(workGroups, (works, makeName) =>
+      this.writer.create(this.getOutputPath(makeName), this.getStaticHtml(works, makeName))
+    );
+  };
+  getStaticHtml = (works, makeName) => {
+    return this.html.toStatic(Make, { items: works, title: makeName })
+  };
+  getOutputPath = (makeName) => {
+    return `${this.output}/makes/${makeName}/index.html`;
+  };
+  waitsFor = (tasks) => {
+    return Promise.all(tasks);
   };
 }
