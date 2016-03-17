@@ -5,8 +5,6 @@ import Writer from '../utils/Writer';
 import Html from '../utils/Html';
 import Make from '../components/Pages/Make';
 
-const INDEX_FILE = 'index.html';
-
 export default class MakeProducer  {
   constructor (input, output) {
     this.input = input;

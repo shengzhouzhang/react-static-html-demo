@@ -5,8 +5,6 @@ import Writer from '../utils/Writer';
 import Html from '../utils/Html';
 import Model from '../components/Pages/Model';
 
-const INDEX_FILE = 'index.html';
-
 export default class ModelProducer  {
   constructor (input, output) {
     this.input = input;
