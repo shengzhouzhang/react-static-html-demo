@@ -40,8 +40,10 @@ describe('Reader Util', () => {
             expect(entity).to.have.property('imageUrl');
             expect(entity).to.have.property('make');
             expect(entity).to.have.property('model');
+            expect(entity).to.have.property('iso');
             expect(entity._id).to.exist;
             expect(entity.imageUrl).to.exist;
+            expect(entity.iso).to.exist;
           });
         });
     });

@@ -36,7 +36,8 @@ export default class Reader {
         item.id && item.id[0],
         item.urls && item.urls[0] && item.urls[0].url && item.urls[0].url[1] && item.urls[0].url[1]._,
         item.exif && item.exif[0] && item.exif[0].make && item.exif[0].make[0] || undefined,
-        item.exif && item.exif[0] && item.exif[0].model && item.exif[0].model[0] || undefined
+        item.exif && item.exif[0] && item.exif[0].model && item.exif[0].model[0] || undefined,
+        item.exif && item.exif[0] && item.exif[0].iso_speed_ratings && item.exif[0].iso_speed_ratings[0]
       );
     });
   };

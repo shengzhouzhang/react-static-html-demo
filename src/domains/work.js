@@ -7,6 +7,6 @@ export default class Work {
     this.imageUrl = imageUrl;
     this.make = make && make.toLowerCase() || 'unknown';
     this.model = make && model.toLowerCase() || 'unknown';
-    this.iso = iso;
+    this.iso = iso || 'unknown';
   }
 }
