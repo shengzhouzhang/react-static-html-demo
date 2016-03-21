@@ -66,8 +66,10 @@ describe('Model Producer', () => {
     it('should return the file path of the output file', () => {
       const INPUT = '';
       const OUTPUT = './output';
-      let result = new ModelProducer(INPUT, OUTPUT).getOutputPath('FILE_NAME');
-      expect(result).to.eql(`./output/FILE_NAME.html`);
+      const MADEL_NAME = 'MODEL_NAME';
+      const EXPECTED_FILE_PATH = `${OUTPUT}/${MADEL_NAME}/index.html`;
+      let result = new ModelProducer(INPUT, OUTPUT).getOutputPath(MADEL_NAME);
+      expect(result).to.eql(EXPECTED_FILE_PATH);
     });
   });
 });

@@ -33,8 +33,8 @@ export default class ModelProducer  {
     let modelName = works[0] && works[0].model || 'unknown';
     return this.html.toStatic(Model, { items: works, title: `${workName} ${modelName}` })
   };
-  getOutputPath = (filePath) => {
-    return `${this.output}/${filePath}.html`;
+  getOutputPath = (modelName) => {
+    return `${this.output}/${modelName}/index.html`;
   };
   waitsFor = (tasks) => {
     return Promise.all(tasks);
