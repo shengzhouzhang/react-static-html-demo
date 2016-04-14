@@ -1,4 +1,4 @@
-# coding-test
+# react static html demo
 
 - This program is implemented with Node JS + React JS.
 - Node JS is for parsing input and creating files. React JS is for rendering static HTML pages.
@@ -28,7 +28,7 @@ $ npm install
 $ npm test
 ```
 
-The unit tests will generate index, makes, models pages and other test file under `./output` folder. And will clean it after finished. You can also manually clean it with `gulp clean-test`. 
+The unit tests will generate index, makes, models pages and other test file under `./output` folder. And will clean it after finished. You can also manually clean it with `gulp clean-test`.
 
 # Running
 
